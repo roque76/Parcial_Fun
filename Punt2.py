@@ -38,6 +38,7 @@ def jc_max (j):
   df = arc_ex[arc_ex['Nombre']==j][['Región','Venta Millones']]
   df2 = df.groupby('Región').sum('Venta Millones')
   print(df2)
+  print(a)
 # j=str(input('Ingresar nombre del juego: '))
 # jc_max(j)
 
@@ -56,11 +57,24 @@ def cv_tot ():
   explode = (0.05, 0.05, 0.05, 0.05)
 
   plt.pie(venta , labels=region, explode=explode)
-
   centre_circle = plt.Circle((0, 0), 0.70, fc='white')
   fig = plt.gcf()
-
   fig.gca().add_artist(centre_circle)
 
   plt.show
-cv_tot()
+# cv_tot()
+
+def av_tot_chart ():
+    df = arc_ex
+    df3 = df.groupby('Año').sum('Venta Millones')
+    l_a = list(df['Año'].unique())
+    l_v = list(df3['Venta Millones'])
+
+    
+    plt.bar(l_a, l_v)
+    plt.xlabel('Años ')
+    plt.ylabel('Venta Millones')
+    plt.title('Venta en Años')
+
+    # print(df3)
+# av_tot_chart()
