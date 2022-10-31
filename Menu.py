@@ -131,86 +131,79 @@ def menu():
   print ("\t9 - Graficar vantas totales por plataforma")
   print ("\t10 - Graficar ventas por genero de juego")
   print ("\t11- Graficar ventas por continente")
-
   print ("\t12 - salir")
 
-while True:
-  #Mostramos el menu
-  menu()
 
-  #Solicitamos una opción al usuario
-  opcionMenu = input("Inserta un número valor >> ")
+menu()
+opcionMenu = input("Inserta un número valor >> ")
 
-  if opcionMenu=="1":
-
+if opcionMenu=="1":
     print("")
-    input("Has pulsado la opción 1...\npulsa una tecla para continuar")
+    print("Has pulsado la opción 1...")
     print(v_tot())
-
-  elif opcionMenu=="2":
-
+elif opcionMenu=="2":
     print("")
-    input("Has pulsado la opción 2...\npulsa una tecla para continuar")
+    print("Has pulsado la opción 2...")
     print(av_tot())
-
-  elif opcionMenu=="3":
+elif opcionMenu=="3":
 
     print("")
-    input("Has pulsado la opción 3...\npulsa una tecla para continuar")
+    print("Has pulsado la opción 3...")
     print(v_plat())
 
-  elif opcionMenu=="4":
+elif opcionMenu=="4":
 
     print("")
-    input("Has pulsado la opción 4...\npulsa una tecla para continuar")
+    print("Has pulsado la opción 4...")
     i=int(input('Ingresar año: '))
     print(ap_max(i))
 
-  elif opcionMenu=="5":
+elif opcionMenu=="5":
 
     print("")
-    input("Has pulsado la opción 5...\npulsa una tecla para continuar")
+    print("Has pulsado la opción 5...")
     j=str(input('Ingresar nombre del juego: '))
     jc_max(j)
 
-  elif opcionMenu=="6":
+elif opcionMenu=="6":
 
     print("")
-    input("Has pulsado la opción 6...\npulsa una tecla para continuar")
+    print("Has pulsado la opción 6...")
     r=str(input('Ingresar región: '))
     rj_max(r)
 
-  elif opcionMenu=="7":
+elif opcionMenu=="7":
     print("")
-    input("Has pulsado la opción 7...\npulsa una tecla para continuar")
+    print("Has pulsado la opción 7...")
     print(cv_tot())
 
-  elif opcionMenu=="8":
+elif opcionMenu=="8":
 
     print("")
-    input("Has pulsado la opción 8...\npulsa una tecla para continuar")
+    print("Has pulsado la opción 8...")
     print(av_tot_chart())
 
-  elif opcionMenu=="9":
+elif opcionMenu=="9":
 
     print("")
-    input("Has pulsado la opción 9...\npulsa una tecla para continuar")
+    print("Has pulsado la opción 9...")
     print(vp_tot())
 
-  elif opcionMenu=="10":
+elif opcionMenu=="10":
 
     print("")
-    input("Has pulsado la opción 10...\npulsa una tecla para continuar")
+    print("Has pulsado la opción 10...")
     print(g_tot())
 
-  elif opcionMenu=="11":
+elif opcionMenu=="11":
 
     print("")
-    input("Has pulsado la opción 11...\npulsa una tecla para continuar")
+    print("Has pulsado la opción 11...")
     print(r_tot())
-  elif opcionMenu=="12":
-    break
-  else:
-    print("")
-    input("No has pulsado ninguna opción correcta...\npulsa una tecla para continuar ")
+elif opcionMenu=="12":
+    print('FIN')
+
+#   else:
+#     print("")
+#     input("No has pulsado ninguna opción correcta...\npulsa una tecla para continuar ")
 
