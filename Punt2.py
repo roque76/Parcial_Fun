@@ -66,15 +66,32 @@ def cv_tot ():
 
 def av_tot_chart ():
     df = arc_ex
-    df3 = df.groupby('Año').sum('Venta Millones')
-    l_a = list(df['Año'].unique())
-    l_v = list(df3['Venta Millones'])
+    df1 = arc_ex[['Año', 'Venta Millones']]
+    df2 = df.groupby('Año').sum('Venta Millones')
+    l_a = list(df1['Año'].unique())
+    l_a = sorted(l_a)
+    l_v = list(df2['Venta Millones'])
 
-    
-    plt.bar(l_a, l_v)
+    plt.bar(l_a,l_v)
     plt.xlabel('Años ')
     plt.ylabel('Venta Millones')
     plt.title('Venta en Años')
-
-    # print(df3)
 # av_tot_chart()
+
+def vp_tot ():
+    df = arc_ex[['Plataforma','Venta Millones']]
+    df3 = df.groupby('Plataforma').sum('Venta Millones')
+    l_a = list(df['Plataforma'].unique())
+    l_v = list(df3['Venta Millones'])
+    pl=['2600A', 'PS', 'N64', 'PS2', 'DS', '3DS', 'Wii', 'PS3', 'X360', 'PS4', 'WiiU', 'XOne', 'PSP', 'PSV', 'XB', 'PC', 'GBA', 'GC', 'SNES', 'NES', 'SAT', 'GEN', 'DC', 'GB', '3DO', 'TG16', 'NG', 'SCD']
+    pl.sort()
+    # print(l_v)
+    print(pl)
+    print(df3)
+    plt.barh(pl,l_v)
+    plt.xlabel('Venta Millones')
+    plt.ylabel('Plataforma')
+    plt.title('Venta en Años')
+# vp_tot()
+
+def
