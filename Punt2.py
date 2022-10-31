@@ -48,14 +48,19 @@ def rj_max (r):
   max_df2 = df2['Venta Millones'].max()
   print(df2[df2['Venta Millones']==max_df2])
 
+# r=str(input('Ingresar región: '))
+# rj_max(r)
+
 def cv_tot ():
   df= arc_ex[['Región','Venta Millones']]
   df2 = df.groupby('Región').sum('Venta Millones')
   # print(df2)
-  region=['Europa','Japón','Norte America', 'Otros']
-  venta =[937.84,456.02,1708.37,322.19]
+  region=list(df['Región'].unique())
+  region.sort()
+  venta = list(df2['Venta Millones'])
   explode = (0.05, 0.05, 0.05, 0.05)
 
+  print(df2)
   plt.pie(venta , labels=region, explode=explode)
   centre_circle = plt.Circle((0, 0), 0.70, fc='white')
   fig = plt.gcf()
@@ -66,12 +71,12 @@ def cv_tot ():
 
 def av_tot_chart ():
     df = arc_ex
-    df1 = arc_ex[['Año', 'Venta Millones']]
     df2 = df.groupby('Año').sum('Venta Millones')
-    l_a = list(df1['Año'].unique())
+    l_a = list(df['Año'].unique())
     l_a = sorted(l_a)
     l_v = list(df2['Venta Millones'])
 
+    print(df2)
     plt.bar(l_a,l_v)
     plt.xlabel('Años ')
     plt.ylabel('Venta Millones')
@@ -85,8 +90,6 @@ def vp_tot ():
     l_v = list(df3['Venta Millones'])
     pl=['2600A', 'PS', 'N64', 'PS2', 'DS', '3DS', 'Wii', 'PS3', 'X360', 'PS4', 'WiiU', 'XOne', 'PSP', 'PSV', 'XB', 'PC', 'GBA', 'GC', 'SNES', 'NES', 'SAT', 'GEN', 'DC', 'GB', '3DO', 'TG16', 'NG', 'SCD']
     pl.sort()
-    # print(l_v)
-    print(pl)
     print(df3)
     plt.barh(pl,l_v)
     plt.xlabel('Venta Millones')
@@ -94,4 +97,31 @@ def vp_tot ():
     plt.title('Venta en Años')
 # vp_tot()
 
-def
+def g_tot ():
+  df = arc_ex[['Genero', 'Venta Millones']]
+  df1 = df.groupby('Genero').sum('Venta Millones')
+  print(df1)
+  l_g = list(df['Genero'].unique())
+  l_g.sort()
+  l_vm = list(df1['Venta Millones'])
+  explode = (0.05, 0.05, 0.05, 0.05, 0.05)
+  
+  plt.pie(l_vm , labels=l_g, explode=explode)
+  centre_circle = plt.Circle((0, 0), 0.70, fc='white')
+  fig = plt.gcf()
+  fig.gca().add_artist(centre_circle)
+
+  plt.show
+# g_tot()
+
+def r_tot ():
+  df = arc_ex[['Región','Venta Millones']]
+  df1 = df.groupby('Región').sum('Venta Millones')
+  l_r = list(df['Región'].unique())
+  l_r.sort()
+  l_vm = list(df1['Venta Millones'])
+  explode = (0.05, 0.05, 0.05, 0.05)
+  
+  plt.pie(l_vm , labels=l_r, explode=explode)
+  print(df1)
+# r_tot()
