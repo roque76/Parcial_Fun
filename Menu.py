@@ -51,7 +51,7 @@ def cv_tot ():
   explode = (0.05, 0.05, 0.05, 0.05)
 
   print(df2)
-  plt.pie(venta , labels=region, explode=explode)
+  plt.pie(venta , labels=region, explode=explode, autopct="%0.1f %%")
   centre_circle = plt.Circle((0, 0), 0.70, fc='white')
   fig = plt.gcf()
   fig.gca().add_artist(centre_circle)
@@ -67,6 +67,7 @@ def av_tot_chart ():
     l_v = list(df2['Venta Millones'])
 
     print(df2)
+
     plt.bar(l_a,l_v)
     plt.xlabel('Años ')
     plt.ylabel('Venta Millones')
@@ -81,10 +82,19 @@ def vp_tot ():
     pl=['2600A', 'PS', 'N64', 'PS2', 'DS', '3DS', 'Wii', 'PS3', 'X360', 'PS4', 'WiiU', 'XOne', 'PSP', 'PSV', 'XB', 'PC', 'GBA', 'GC', 'SNES', 'NES', 'SAT', 'GEN', 'DC', 'GB', '3DO', 'TG16', 'NG', 'SCD']
     pl.sort()
     print(df3)
-    plt.barh(pl,l_v)
-    plt.xlabel('Venta Millones')
-    plt.ylabel('Plataforma')
-    plt.title('Venta en Años')
+    fig, ax = plt.subplots(figsize =(16, 15))
+    ax.xaxis.set_tick_params(pad = 20)
+    ax.yaxis.set_tick_params(pad = 15)
+    ax.grid(visible = True, color ='green',
+        linestyle ='-.', linewidth = 1.5,
+        alpha = 0.2)
+    ax.invert_yaxis()
+    font= {'size  ':10}
+    plt.rcParams.update({'font.size': 15})
+    plt.barh(pl,l_v,)
+    plt.xlabel('Venta Millones', fontsize=20,)
+    plt.ylabel('Plataforma', fontsize=20,)
+    plt.title('Venta en Años', loc='left',fontsize=20,)
 
 def g_tot ():
   df = arc_ex[['Genero', 'Venta Millones']]
@@ -95,7 +105,7 @@ def g_tot ():
   l_vm = list(df1['Venta Millones'])
   explode = (0.05, 0.05, 0.05, 0.05, 0.05)
   
-  plt.pie(l_vm , labels=l_g, explode=explode)
+  plt.pie(l_vm , labels=l_g, explode=explode, autopct="%0.1f %%")
   centre_circle = plt.Circle((0, 0), 0.70, fc='white')
   fig = plt.gcf()
   fig.gca().add_artist(centre_circle)
@@ -110,7 +120,7 @@ def r_tot ():
   l_vm = list(df1['Venta Millones'])
   explode = (0.05, 0.05, 0.05, 0.05)
   
-  plt.pie(l_vm , labels=l_r, explode=explode)
+  plt.pie(l_vm , labels=l_r, explode=explode, autopct="%0.1f %%")
   print(df1)
 
 

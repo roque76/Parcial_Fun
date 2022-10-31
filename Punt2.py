@@ -2,11 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 arc_ex = pd.read_excel('data_ventas_video_juegos_1 1.xlsx')
-v_mill = arc_ex['Venta Millones']
-p_col = arc_ex['Plataforma']
-a_col = arc_ex['Año']
-
-
 
 
 def v_tot ():
@@ -91,11 +86,20 @@ def vp_tot ():
     pl=['2600A', 'PS', 'N64', 'PS2', 'DS', '3DS', 'Wii', 'PS3', 'X360', 'PS4', 'WiiU', 'XOne', 'PSP', 'PSV', 'XB', 'PC', 'GBA', 'GC', 'SNES', 'NES', 'SAT', 'GEN', 'DC', 'GB', '3DO', 'TG16', 'NG', 'SCD']
     pl.sort()
     print(df3)
-    plt.barh(pl,l_v)
-    plt.xlabel('Venta Millones')
-    plt.ylabel('Plataforma')
-    plt.title('Venta en Años')
-# vp_tot()
+    fig, ax = plt.subplots(figsize =(16, 15))
+    ax.xaxis.set_tick_params(pad = 20)
+    ax.yaxis.set_tick_params(pad = 15)
+    ax.grid(visible = True, color ='green',
+        linestyle ='-.', linewidth = 1.5,
+        alpha = 0.2)
+    ax.invert_yaxis()
+    font= {'size  ':10}
+    plt.rcParams.update({'font.size': 15})
+    plt.barh(pl,l_v,)
+    plt.xlabel('Venta Millones', fontsize=20,)
+    plt.ylabel('Plataforma', fontsize=20,)
+    plt.title('Venta en Años', loc='left',fontsize=20,)
+vp_tot()
 
 def g_tot ():
   df = arc_ex[['Genero', 'Venta Millones']]
