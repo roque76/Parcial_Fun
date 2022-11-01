@@ -31,7 +31,6 @@ def jc_max (j):
   df = arc_ex[arc_ex['Nombre']==j][['Región','Venta Millones']]
   df2 = df.groupby('Región').sum('Venta Millones')
   print(df2)
-  print(a)
 
 
 def rj_max (r):
