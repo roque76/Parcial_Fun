@@ -67,8 +67,15 @@ def av_tot_chart ():
     l_v = list(df2['Venta Millones'])
 
     print(df2)
-
-    plt.bar(l_a,l_v)
+    fig, ax = plt.subplots(figsize =(16, 15))
+    ax.xaxis.set_tick_params(pad = 20)
+    ax.yaxis.set_tick_params(pad = 15)
+    ax.grid(visible = True, color ='green',
+        linestyle ='-.', linewidth = 1.5,
+        alpha = 0.2)
+    font= {'size  ':10}
+    plt.rcParams.update({'font.size': 15})
+    plt.bar(l_a,l_v,color='#792')
     plt.xlabel('Años ')
     plt.ylabel('Venta Millones')
     plt.title('Venta en Años')
@@ -85,13 +92,13 @@ def vp_tot ():
     fig, ax = plt.subplots(figsize =(16, 15))
     ax.xaxis.set_tick_params(pad = 20)
     ax.yaxis.set_tick_params(pad = 15)
-    ax.grid(visible = True, color ='green',
+    ax.grid(visible = True, color ='black',
         linestyle ='-.', linewidth = 1.5,
         alpha = 0.2)
     ax.invert_yaxis()
     font= {'size  ':10}
     plt.rcParams.update({'font.size': 15})
-    plt.barh(pl,l_v,)
+    plt.barh(pl,l_v,color='#439')
     plt.xlabel('Venta Millones', fontsize=20,)
     plt.ylabel('Plataforma', fontsize=20,)
     plt.title('Venta en Años', loc='left',fontsize=20,)
@@ -140,7 +147,7 @@ def menu():
   print ("\t8 - Graficar ventas totales por año ")
   print ("\t9 - Graficar vantas totales por plataforma")
   print ("\t10 - Graficar ventas por genero de juego")
-  print ("\t11- Graficar ventas por continente")
+  print ("\t11- Graficar ventas por Región")
   print ("\t12 - salir")
 
 
